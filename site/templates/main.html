@@ -1,0 +1,19 @@
+<html>
+<head>
+   <link href="{{ url_for('static',filename = 'bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    
+<div class ="container" >
+  <img src="{{ url_for('static',filename = 'redditt.jpg') }}" style="width: 100%; height:25%; margin: 25px;" alt="Responsive image">
+  <form action="{{ url_for('home') }}" method="POST" >
+    <div class = "form-group row">
+      <label for="url" >Enter Url </label>
+      <input type="text" id="url" name="url" class ="form-control" required aria-describedby="Help">
+      <small id="Help" class="form-text text-muted">Please place a url for r/india post</small>
+    </div>
+    <input type="submit" class ="btn btn-primary" >
+  </form>
+</div>
+</body>
+</html>
