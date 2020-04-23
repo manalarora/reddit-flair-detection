@@ -8,6 +8,8 @@ from werkzeug.utils import secure_filename
 import pickle
 import praw
 import flask
+import json
+from flask import send_from_directory
 
 
 replace_by_space = re.compile('[/(){}\[\]\|@,;]')
@@ -86,10 +88,10 @@ def upload_file():
 
 	if flask.request.method == 'POST':
 		# check if the post request has the file part
-		if 'file' not in flask.request.files:
-			flash('No file part')
-			return flask.redirect(request.url)
-		file = flask.request.files['file']
+		# if 'files' not in flask.request.files:
+		# 	flash('No file part')
+		# 	return flask.redirect(request.url)
+		file = flask.request.files['upload_file']
 		# if user does not select file, browser also
         # submit an empty part without filename
 		obj = {}
@@ -100,7 +102,9 @@ def upload_file():
 			for line in f.read().splitlines():
 				obj[line]=prediction(line)[0]
 				print(obj[line])
-			return obj
+			# with open(os.path.join(app.config['UPLOAD_FOLDER'], 'resp.json'), 'w') as json_file:
+			return json.dumps(obj)
+			# return send_from_directory(app.config["UPLOAD_FOLDER"], filename='resp.json', as_attachment=True)
     
 if __name__ == '__main__':
 	app.run()
