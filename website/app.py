@@ -29,11 +29,11 @@ def clean_text(text):
 # Use pickle to load in the pre-trained model
 model = pickle.load(open('model/LR_data2.pkl','rb'))
 
-reddit = praw.Reddit(client_id = "b5GZswE_-4JHvw",
-                     client_secret = "weXodwTvLzJkPcnmfyP72DTs184",
-                     user_agent = "Reddit Flare Detection",
-                     username = "allergy21",
-                     password = "##rkueCQf7ZGez!")
+reddit = praw.Reddit(client_id = "",
+                     client_secret = "",
+                     user_agent = "",
+                     username = "",
+                     password = "")
 
 def prediction(url):
 	submission = reddit.submission(url = url)
