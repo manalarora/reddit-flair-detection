@@ -12,7 +12,7 @@ joblib==0.14.1
 lxml==4.5.0
 MarkupSafe==1.1.1
 nltk==3.5
-numpy==1.18.2
+numpy==1.22.0
 praw==6.5.1
 prawcore==1.0.1
 regex==2020.4.4
